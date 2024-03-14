@@ -1,0 +1,14 @@
+{
+  "name": "learn-npm",
+  "version": "1.0.0",
+  "description": "NPM means Node Package Manager. It's the piece of software that manages external dependencies of our project.",
+  "main": "main.mjs",
+  "scripts": {
+    "start": "node main.mjs"
+  },
+  "author": "George Spanos",
+  "license": "MIT",
+  "dependencies": {
+    "isprime": "^0.0.2"
+  }
+}
