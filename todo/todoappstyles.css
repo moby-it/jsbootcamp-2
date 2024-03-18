@@ -9,17 +9,18 @@ body {
 
 button {
     border-radius: 12px;
-    padding-top: 5px;
-    font-size: 17px;
-    margin: 10px;
-    width:25.5px;
-    height: 30.5px;
+    margin: 9px;
+    margin-left: 16px;
+    width:25px;
+    height: 29.5px;
     background: hsl(53, 18%, 70%);
     border: none;
 }
 
 form {
     margin-bottom: 2rem;
+    display : flex;
+    align-items : center;
 }
 
 .apptext {
@@ -31,12 +32,19 @@ form {
 
 #title {
     font-size:2em;
-    margin: 21.44px 0;
+    margin-top: 26px;
+    margin-bottom: 11px;
+
 }
 
 #inputbox {
-    width: 190px;
-    height: 25px;
+    margin-left: 10px;
+    width: 179px;
+    height: 24px;
+}
+
+#emptynote {
+    margin-top : 38px;
 }
 
 
