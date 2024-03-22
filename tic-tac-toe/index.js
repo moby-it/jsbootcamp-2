@@ -30,12 +30,37 @@ sectionDivs.forEach((div, index) => {
 function botPlay() {
   const emptySpaces = [];
   gameArray.forEach((value, index) => {
-    if (!value) emptySpaces.push(index);
+      if (!value) emptySpaces.push(index);
   });
+
+  
+  for (let i = 0; i < emptySpaces.length; i++) {
+      const index = emptySpaces[i];
+      gameArray[index] = 'X';
+      if (checkWin('X')) {
+          sectionDivs[index].textContent = 'X';
+          return;
+      }
+      gameArray[index] = '';
+  }
+
+  
+  for (let i = 0; i < emptySpaces.length; i++) {
+      const index = emptySpaces[i];
+      gameArray[index] = 'O';
+      if (checkWin('O')) {
+          sectionDivs[index].textContent = 'X';
+          gameArray[index] = 'X';
+          return;
+      }
+      gameArray[index] = '';
+  }
+
   const randomIndex = Math.floor(Math.random() * emptySpaces.length);
   sectionDivs[emptySpaces[randomIndex]].textContent = 'X';
   gameArray[emptySpaces[randomIndex]] = 'X';
 }
+
 /**
  * 
  * @returns The winner, if any. Otherwise returns undefined
