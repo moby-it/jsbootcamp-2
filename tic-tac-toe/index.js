@@ -49,8 +49,8 @@ function botPlay() {
       const index = emptySpaces[i];
       gameArray[index] = 'O';
       if (checkWin('O')) {
-          sectionDivs[index].textContent = 'X';
-          gameArray[index] = 'X';
+          sectionDivs[index].textContent = '0';
+          gameArray[index] = '0';
           return;
       }
       gameArray[index] = '';
