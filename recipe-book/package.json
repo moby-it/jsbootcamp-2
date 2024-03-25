@@ -1,0 +1,11 @@
+{
+  "name": "recipe-book",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.mjs",
+  "scripts": {
+    "dev": "node --watch main.mjs"
+  },
+  "author": "",
+  "license": "ISC"
+}
