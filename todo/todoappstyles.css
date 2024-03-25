@@ -7,9 +7,7 @@ body {
     justify-content : center;
     overflow: hidden;
 }
-main {
-    margin-right: 14.5px;
-}
+
 
 button {
     border-radius: 12px;
@@ -22,9 +20,11 @@ button {
 }
 
 form {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    margin-left: 0.1rem;
     display : flex;
     align-items : center;
+    justify-content: center;
 }
 
 .apptext {
