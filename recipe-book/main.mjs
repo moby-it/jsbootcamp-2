@@ -13,7 +13,7 @@ http.createServer(async (req, res) => {
     res.write('I an not the index html file');
     res.end();
   } else {
-    let path = req.url === '/' ? '/index.html' : req.url;
+    let path = req.url === '/' ? '/index.html' : req.url.toLowerCase();
     if (!path.includes('.')) {
       path += '.html';
     }

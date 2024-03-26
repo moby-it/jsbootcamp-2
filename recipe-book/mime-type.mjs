@@ -14,6 +14,8 @@ const MIME_TYPES = {
 };
 
 export function appendMimeType(filename, res) {
+  // we convert the substr to lower case because 
+  // Firefox does not convert the url to lowercase
   const ext = path.extname(filename).substring(1).toLowerCase();
   res.writeHead(200, { 'Content-Type': MIME_TYPES[ext] || MIME_TYPES.default });
 }
