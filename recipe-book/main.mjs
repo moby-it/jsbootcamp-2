@@ -8,9 +8,8 @@ const PORT = 8000;
 const STATIC_PATH = path.join(process.cwd(), "./static");
 
 http.createServer(async (req, res) => {
-  console.log(req.method);
   if (req.url.includes('/api')) {
-    res.write('I an not the index html file');
+    res.write('I am not the index html file');
     res.end();
   } else {
     let path = req.url === '/' ? '/index.html' : req.url.toLowerCase();
