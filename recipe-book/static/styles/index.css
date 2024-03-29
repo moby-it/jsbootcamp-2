@@ -2,9 +2,16 @@ body h1 {
   text-align: center;
   margin-bottom: 3rem;
 }
+section {
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+  margin: auto;
+  padding: 1rem;
+}
 
 .recipe-list {
-  padding: 1rem 0;
+  padding: 1rem;
   max-height: 80%;
   overflow: auto;
   display: flex;

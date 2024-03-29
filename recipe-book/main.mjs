@@ -8,6 +8,8 @@ const PORT = 8000;
 const STATIC_PATH = path.join(process.cwd(), "./static");
 
 http.createServer(async (req, res) => {
+  const params = new URLSearchParams(req.url.split('?')[1]);
+  console.log(params);
   if (req.url.includes('/api')) {
     res.write('I am not the index html file');
     res.end();
@@ -24,7 +26,7 @@ http.createServer(async (req, res) => {
       res.end();
     } else {
       res.writeHead(404);
-      res.write('File not found')
+      res.write('File not found');
       res.end();
     }
   }

@@ -1,0 +1,64 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form>section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+fieldset {
+  gap: 1rem;
+}
+
+.ingredients {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  
+  .ingredient-list {
+    display: flex;
+    gap: 1rem;
+  
+    & input:first-child {
+      max-width: 50px;
+    }
+    .button {
+      background-color: lightcoral;
+    }
+    section {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .button {
+    align-self: center;
+  }
+}
+
+.recipe-name {
+  display: flex;
+  align-items: center;
+
+  & input {
+    flex-grow: 1;
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+
+  & textarea {
+    width: 100%;
+    height: 150px;
+  }
+}
+
+.submit {
+  align-self: flex-end;
+  margin-right: 1rem;
+}

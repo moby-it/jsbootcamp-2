@@ -1,0 +1,47 @@
+<html>
+
+<head>
+  <title>Recipe Book</title>
+  <link rel="stylesheet" href="/styles/reset.css">
+  <link rel="stylesheet" href="/styles/normalize.css">
+  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="/styles/recipe/create.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <h1>create recipe</h1>
+  <form action="POST">
+    <section>
+      <fieldset class="recipe-name">
+        <label for="name">Recipe Name</label>
+        <input id="name" name="recipe-name" type="text">
+      </fieldset>
+      <fieldset class="ingredients">
+        <label>Ingredients</label>
+        <section class="ingredient-list">
+          <section>
+            <label for="quantity">Quantity</label>
+            <input id="quantity" type="number">
+          </section>
+          <section>
+            <label for="Name">Name</label>
+            <input id="Name" type="text">
+          </section>
+          <button >-</button>
+        </section>
+        <button class="button">Add Ingredient</button>
+      </fieldset>
+      <fieldset class="description">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" type="text">
+          </textarea>
+      </fieldset>
+      <button class="button submit">Submit</button>
+    </section>
+  </form>
+</body>
+
+</html>
