@@ -1,4 +1,5 @@
 import * as path from 'node:path';
+import * as http from "node:http";
 
 const MIME_TYPES = {
   default: "application/octet-stream",
@@ -13,6 +14,11 @@ const MIME_TYPES = {
   svg: "image/svg+xml",
 };
 
+/**
+ * 
+ * @param {string} filename 
+ * @param {http.ServerResponse} res 
+ */
 export function appendMimeType(filename, res) {
   // we convert the substr to lower case because 
   // Firefox does not convert the url to lowercase
