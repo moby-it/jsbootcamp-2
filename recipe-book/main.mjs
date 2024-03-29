@@ -21,4 +21,6 @@ http.createServer(async (req, res) => {
     res.write(file);
     res.end();
   }
-}).listen(PORT);
+}).listen(PORT, () => {
+  console.log('Listening on port', PORT)
+});
