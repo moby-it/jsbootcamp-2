@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="/styles/normalize.css">
   <link rel="stylesheet" href="/styles/styles.css">
   <link rel="stylesheet" href="/styles/recipe/create.css">
+  <script defer src="create.mjs"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap" rel="stylesheet">
@@ -25,15 +26,28 @@
           <button type="button" class="button button-small">+</button>
         </div>
         <section class="ingredient-list">
-          <section>
-            <label for="quantity">Quantity</label>
-            <input id="quantity" type="number">
+          <section class="ingredient">
+            <section>
+              <label for="quantity">Quantity</label>
+              <input id="quantity" name="quantity" type="number">
+            </section>
+            <section>
+              <label for="Name">Name</label>
+              <input id="Name" name="ingredient-name" type="text">
+            </section>
+            <button type="button" class="button button-small button-warn">-</button>
           </section>
-          <section>
-            <label for="Name">Name</label>
-            <input id="Name" type="text">
+          <section class="ingredient">
+            <section>
+              <label for="quantity">Quantity</label>
+              <input id="quantity" name="quantity" type="number">
+            </section>
+            <section>
+              <label for="Name">Name</label>
+              <input id="Name" name="ingredient-name" type="text">
+            </section>
+            <button type="button" class="button button-small button-warn">-</button>
           </section>
-          <button type="button" class="button button-small button-warn">-</button>
         </section>
       </fieldset>
       <fieldset class="description">
