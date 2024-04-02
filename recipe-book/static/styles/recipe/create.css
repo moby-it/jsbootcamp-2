@@ -18,24 +18,30 @@ fieldset {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  
+
   .ingredient-list {
     display: flex;
     gap: 1rem;
-  
+
     & input:first-child {
       max-width: 50px;
     }
-    .button {
-      background-color: lightcoral;
-    }
+
     section {
       display: flex;
       flex-direction: column;
     }
   }
+
   .button {
-    align-self: center;
+    align-self: flex-end;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
   }
 }
 

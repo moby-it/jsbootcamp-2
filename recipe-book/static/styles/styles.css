@@ -1,3 +1,5 @@
+@import 'button.css';
+
 :root {
   font-size: 16px;
 }
@@ -17,13 +19,3 @@ body>h1 {
   margin-bottom: 6rem;
 }
 
-.button {
-  padding: 10px 12px;
-  border-radius: 8px;
-  background-color: darkblue;
-  color: whitesmoke;
-
-  &:hover {
-    background-color: rgba(0, 0, 139, 0.8);
-  }
-}

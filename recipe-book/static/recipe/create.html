@@ -20,7 +20,10 @@
         <input id="name" name="recipe-name" type="text">
       </fieldset>
       <fieldset class="ingredients">
-        <label>Ingredients</label>
+        <div class="header">
+          <label>Ingredients</label>
+          <button type="button" class="button button-small">+</button>
+        </div>
         <section class="ingredient-list">
           <section>
             <label for="quantity">Quantity</label>
@@ -30,16 +33,15 @@
             <label for="Name">Name</label>
             <input id="Name" type="text">
           </section>
-          <button >-</button>
+          <button type="button" class="button button-small button-warn">-</button>
         </section>
-        <button class="button">Add Ingredient</button>
       </fieldset>
       <fieldset class="description">
         <label for="description">Description</label>
         <textarea id="description" name="description" type="text">
           </textarea>
       </fieldset>
-      <button class="button submit">Submit</button>
+      <button type="submit" class="button submit">Submit</button>
     </section>
   </form>
 </body>
