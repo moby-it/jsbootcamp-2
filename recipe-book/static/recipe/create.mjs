@@ -1,5 +1,12 @@
 const submitButton = document.querySelector('.submit');
 const addButton = document.getElementById('add-button');
+const removeButtons = document.querySelectorAll('.remove-button');
+
+const quantityTypeOptions = ["pcs", "gr", "spoon"];
+
+removeButtons.forEach(button => {
+  button.addEventListener('click', removeIngredient);
+});
 
 addButton.addEventListener('click', addIngredient);
 
@@ -7,10 +14,11 @@ function submit() {
 
   const quantities = getQuantities();
   const ingredientNames = getIngredientNames();
+  const quantityTypes = getQuantityTypes();
   const ingredients = [];
 
   quantities.forEach((value, index) => {
-    ingredients.push({ quantity: value, ingredientName: ingredientNames[index] });
+    ingredients.push({ quantity: value, type: quantityTypes[index], ingredientName: ingredientNames[index] });
   });
 
   const formValue = {
@@ -47,43 +55,57 @@ function getQuantities() {
   const quantities = Array.from(inputs).map(i => i.value);
   return quantities;
 }
+function getQuantityTypes() {
+  const inputs = document.querySelectorAll('[name=quantity-type]');
+  const quantityTypes = Array.from(inputs).map(i => i.value);
+  return quantityTypes;
+}
 
 function addIngredient() {
   console.log('should add ingredient');
   const ingredientSection = document.createElement('section');
   ingredientSection.className = 'ingredient';
+
   const quantitySection = document.createElement('section');
-  let label = document.createElement('label');
-  label.setAttribute('for', 'quantity');
-  label.setAttribute('type', 'number');
+
   let input = document.createElement('input');
   input.id = 'quantity';
   input.setAttribute('name', 'quantity');
   input.setAttribute('type', 'number');
-  quantitySection.appendChild(label);
   quantitySection.appendChild(input);
   ingredientSection.appendChild(quantitySection);
 
+  const quantityTypeSection = document.createElement('section');
+  input = document.createElement('select');
+  input.setAttribute('name', 'quantity-type');
+  quantityTypeOptions.forEach(o => {
+    const option = document.createElement('option');
+    option.setAttribute('value', o);
+    option.textContent = o;
+    input.appendChild(option);
+  });
+  quantityTypeSection.appendChild(input);
+  ingredientSection.appendChild(quantityTypeSection);
+
   const ingredientNameSection = document.createElement('section');
-  label = document.createElement('label');
-  label.setAttribute('for', 'Name');
-  label.setAttribute('type', 'text');
+
   input = document.createElement('input');
   input.id = 'Name';
   input.setAttribute('name', 'ingredient-name');
   input.setAttribute('type', 'text');
-  ingredientNameSection.appendChild(label);
   ingredientNameSection.appendChild(input);
 
   const button = document.createElement('button');
   button.setAttribute('type', 'button');
   button.classList.add('button', 'button-small', 'button-warn');
   button.textContent = '-';
+  button.addEventListener('click', removeIngredient);
   ingredientSection.appendChild(ingredientNameSection);
   ingredientSection.appendChild(button);
   const ingredientList = document.querySelector('.ingredient-list');
   ingredientList.appendChild(ingredientSection);
 }
-function removeIngredient() {
-  console.log('should remove ingredient');
+function removeIngredient(event) {
+  const ingredientList = document.querySelector('.ingredient-list');
+  ingredientList.removeChild(event.target.parentNode);
 }

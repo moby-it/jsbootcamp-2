@@ -21,22 +21,16 @@
         <input id="name" name="recipe-name" type="text">
       </fieldset>
       <fieldset class="ingredients">
-        <div class="header">
-          <label>Ingredients</label>
+        <header>
+          <h3>Ingredients</h3>
           <button type="button" id="add-button" class="button button-small">+</button>
-        </div>
+        </header>
         <section class="ingredient-list">
-          <section class="ingredient">
-            <section>
-              <label for="quantity">Quantity</label>
-              <input id="quantity" name="quantity" type="number">
-            </section>
-            <section>
-              <label for="Name">Name</label>
-              <input id="Name" name="ingredient-name" type="text">
-            </section>
-            <button type="button" class="button button-small button-warn">-</button>
-          </section>
+          <header>
+            <span>Quantity</span>
+            <span>Type</span>
+            <span>Name</span>
+          </header>
         </section>
       </fieldset>
       <fieldset class="description">
