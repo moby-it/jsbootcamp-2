@@ -1,3 +1,5 @@
+@import 'reset.css';
+@import 'normalize.css';
 @import 'button.css';
 
 :root {
@@ -18,4 +20,3 @@ body>h1 {
   text-align: center;
   margin-bottom: 6rem;
 }
-

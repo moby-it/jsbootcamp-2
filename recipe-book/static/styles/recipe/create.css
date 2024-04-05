@@ -8,11 +8,7 @@ form>section {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  min-width: 500px;
-}
-
-fieldset {
-  gap: 1rem;
+  width: 500px;
 }
 
 .ingredients {
@@ -20,10 +16,39 @@ fieldset {
   flex-direction: column;
   gap: 0.5rem;
 
-  .ingredient-list {
+  /* Ingredients Header */
+  >header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-bottom: 2rem;
+  }
+
+  input {
+    max-width: 150px;
+  }
+  
+  >section {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    >header {
+      display: flex;
+      gap: 1rem;
+
+      span {
+        flex: 3;
+      }
+
+      span:nth-child(2) {
+        flex: 1;
+      }
+      span:last-child {
+        margin-right: calc(21px + 1rem);
+      }
+    }
 
     .ingredient {
       display: flex;
@@ -35,35 +60,15 @@ fieldset {
       }
     }
 
-    header {
-      display: flex;
-      gap: 1rem;
-
-      span {
-        flex: 1;
-      }
-    }
-
   }
 
-  .button {
-    align-self: flex-end;
-  }
-
-  >header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    margin-bottom: 2rem;
-  }
 }
 
 .recipe-name {
   display: flex;
   align-items: center;
-
-  & input {
+  gap: 1rem;
+  input {
     flex-grow: 1;
   }
 }

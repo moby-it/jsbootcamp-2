@@ -66,46 +66,42 @@ function addIngredient() {
   const ingredientSection = document.createElement('section');
   ingredientSection.className = 'ingredient';
 
-  const quantitySection = document.createElement('section');
 
   let input = document.createElement('input');
   input.id = 'quantity';
   input.setAttribute('name', 'quantity');
   input.setAttribute('type', 'number');
-  quantitySection.appendChild(input);
-  ingredientSection.appendChild(quantitySection);
+  input.style.flex = "3";
+  ingredientSection.appendChild(input);
 
-  const quantityTypeSection = document.createElement('section');
   input = document.createElement('select');
   input.setAttribute('name', 'quantity-type');
+  input.style.flex = 1;
   quantityTypeOptions.forEach(o => {
     const option = document.createElement('option');
     option.setAttribute('value', o);
     option.textContent = o;
     input.appendChild(option);
   });
-  quantityTypeSection.appendChild(input);
-  ingredientSection.appendChild(quantityTypeSection);
-
-  const ingredientNameSection = document.createElement('section');
+  ingredientSection.appendChild(input);
 
   input = document.createElement('input');
   input.id = 'Name';
   input.setAttribute('name', 'ingredient-name');
   input.setAttribute('type', 'text');
-  ingredientNameSection.appendChild(input);
+  input.style.flex = "3";
+  ingredientSection.appendChild(input);
 
   const button = document.createElement('button');
   button.setAttribute('type', 'button');
   button.classList.add('button', 'button-small', 'button-warn');
   button.textContent = '-';
   button.addEventListener('click', removeIngredient);
-  ingredientSection.appendChild(ingredientNameSection);
   ingredientSection.appendChild(button);
-  const ingredientList = document.querySelector('.ingredient-list');
+  const ingredientList = document.querySelector('.ingredients>section');
   ingredientList.appendChild(ingredientSection);
 }
 function removeIngredient(event) {
-  const ingredientList = document.querySelector('.ingredient-list');
+  const ingredientList = document.querySelector('.ingredients>section');
   ingredientList.removeChild(event.target.parentNode);
 }
