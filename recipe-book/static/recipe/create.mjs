@@ -26,8 +26,7 @@ function submit() {
     description: getDescription(),
     ingredients
   };
-  // should send call to the backend
-  console.log(formValue);
+  postRecipeData(formValue);
 };
 
 submitButton.addEventListener('click', (event) => {
@@ -62,7 +61,6 @@ function getQuantityTypes() {
 }
 
 function addIngredient() {
-  console.log('should add ingredient');
   const ingredientSection = document.createElement('section');
   ingredientSection.className = 'ingredient';
 
@@ -104,4 +102,18 @@ function addIngredient() {
 function removeIngredient(event) {
   const ingredientList = document.querySelector('.ingredients>section');
   ingredientList.removeChild(event.target.parentNode);
+}
+async function postRecipeData(data) {
+  try {
+    const response = await fetch("/api/recipe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    console.log("Success:", await response.text());
+  } catch (error) {
+    console.error("Error:", error);
+  }
 }
