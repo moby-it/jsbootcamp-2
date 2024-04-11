@@ -13,5 +13,25 @@ export function saveRecipe(recipeJson) {
 }
 
 export function getRecipes() {
-  return [];
+  const s = fs.readdirSync('recipes');
+  const recipes = [];
+  s.forEach(filename => {
+    const id = filename.split('.')[0];
+    const recipeStr = fs.readFileSync(`recipes/${filename}`, 'utf-8');
+    const recipe = JSON.parse(recipeStr);
+    const name = recipe.recipeName;
+    console.log(id, name);
+    recipes.push({
+      id,
+      name
+    });
+  });
+  return recipes;
+}
+export function getRecipeById(id) {
+  const filepath = `recipes/${id}.json`;
+  if (fs.existsSync(filepath)) {
+    const recipeStr = fs.readFileSync(`recipes/${id}.json`, 'utf-8');
+    return recipeStr;
+  }
 }

@@ -60,7 +60,7 @@ function getQuantityTypes() {
   return quantityTypes;
 }
 
-function addIngredient() {
+export function addIngredient() {
   const ingredientSection = document.createElement('section');
   ingredientSection.className = 'ingredient';
 
@@ -113,6 +113,7 @@ async function postRecipeData(data) {
       body: JSON.stringify(data),
     });
     console.log("Success:", await response.text());
+    location.href = '/';
   } catch (error) {
     console.error("Error:", error);
   }

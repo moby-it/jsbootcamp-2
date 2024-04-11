@@ -2,7 +2,7 @@ import * as fs from 'node:fs';
 import * as http from "node:http";
 import * as path from "node:path";
 import { appendMimeType } from "./mime-type.mjs";
-import { getRecipes, saveRecipe } from './recipe.mjs';
+import { getRecipes, saveRecipe, getRecipeById } from './recipe.mjs';
 
 const PORT = 8000;
 
@@ -17,19 +17,23 @@ http.createServer(async (req, res) => {
       const body = await readBody(req);
       saveRecipe(body);
       res.writeHead(201);
+    } else if (req.url.includes('recipe') && req.method === 'GET') {
+      const splitStr = req.url.split('/');
+      const id = splitStr[splitStr.length - 1];
+      const recipe = getRecipeById(id);
+
+      if (!recipe) res.writeHead(404);
+      else res.write(recipe);
+
     } else {
       res.writeHead(404);
     }
     res.end();
   } else {
-    let filePath = req.url === '/' ? '/index.html' : req.url.toLowerCase();
-    if (!filePath.includes('.')) {
-      filePath += '.html';
-    }
-    filePath = path.join(STATIC_PATH, filePath);
-    if (fs.existsSync(filePath)) {
-      const file = await fs.promises.readFile(filePath);
-      appendMimeType(filePath, res);
+    const filepath = extractFilepath(req.url);
+    if (fs.existsSync(filepath)) {
+      const file = await fs.promises.readFile(filepath);
+      appendMimeType(filepath, res);
       res.write(file);
       res.end();
     } else {
@@ -63,4 +67,18 @@ async function readBody(req) {
       reject(e);
     }
   });
+}
+
+function extractFilepath(url) {
+  let filePath = url.split('?')[0];
+  filePath = filePath === '/' ? '/index.html' : filePath.toLowerCase();
+  if (!filePath.includes('.')) {
+    filePath += '.html';
+  }
+  filePath = path.join(STATIC_PATH, filePath);
+  return filePath;
+}
+
+function extractQueryParams(url) {
+
 }
