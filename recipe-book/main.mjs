@@ -25,6 +25,12 @@ http.createServer(async (req, res) => {
       if (!recipe) res.writeHead(404);
       else res.write(recipe);
 
+    } else if (req.url.includes('recipe') && req.method === 'PUT') {
+      const splitStr = req.url.split('/');
+      const id = splitStr[splitStr.length - 1];
+      const body = await readBody(req);
+      saveRecipe(body, id);
+      res.writeHead(204);
     } else {
       res.writeHead(404);
     }
@@ -72,6 +78,7 @@ async function readBody(req) {
 function extractFilepath(url) {
   let filePath = url.split('?')[0];
   filePath = filePath === '/' ? '/index.html' : filePath.toLowerCase();
+
   if (!filePath.includes('.')) {
     filePath += '.html';
   }

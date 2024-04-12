@@ -1,6 +1,15 @@
 // fetch the recipe from the backend
 
-import { addIngredient } from './create.mjs';
+import { addIngredient, extractRecipeData } from './recipe.mjs';
+
+const addButton = document.getElementById('add-button');
+addButton.addEventListener('click', addIngredient);
+
+const submitButton = document.querySelector('.submit');
+submitButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  submit();
+});
 
 const queryParams = new URLSearchParams(window.location.search);
 const id = queryParams.get('id');
@@ -21,9 +30,7 @@ patchDescription(recipe.description);
 recipe.ingredients.forEach(patchIngredient);
 
 function patchIngredient(ingredient) {
-  addIngredient();
-
-  console.log('should patch', ingredient);
+  addIngredient(null, ingredient);
 }
 function patchRecipeName(recipeName) {
   console.log('should patch ', recipeName);
@@ -33,4 +40,19 @@ function patchRecipeName(recipeName) {
 function patchDescription(description) {
   const descriptionInput = document.getElementById('description');
   descriptionInput.value = description;
+}
+async function submit() {
+  const formValue = extractRecipeData();
+  try {
+    await fetch(`/api/recipe/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formValue),
+    });
+    location.href = '/';
+  } catch (error) {
+    console.error("Error:", error);
+  }
 }

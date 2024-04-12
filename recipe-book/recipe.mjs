@@ -2,14 +2,18 @@ import * as fs from "node:fs";
 
 const recipeIndexFile = 'next-recipe-index.txt';
 
-export function saveRecipe(recipeJson) {
+export function saveRecipe(recipeJson, id) {
   if (!fs.existsSync('recipes')) {
     fs.mkdirSync('recipes');
   }
-  const indexStr = fs.readFileSync(recipeIndexFile, 'utf-8');
-  const index = Number(indexStr);
-  fs.writeFileSync(`recipes/${index}.json`, recipeJson);
-  fs.writeFileSync(recipeIndexFile, (index + 1).toString());
+  if (id) {
+    fs.writeFileSync(`recipes/${id}.json`, recipeJson);
+  } else {
+    const indexStr = fs.readFileSync(recipeIndexFile, 'utf-8');
+    const index = Number(indexStr);
+    fs.writeFileSync(`recipes/${index}.json`, recipeJson);
+    fs.writeFileSync(recipeIndexFile, (index + 1).toString());
+  }
 }
 
 export function getRecipes() {
@@ -20,7 +24,6 @@ export function getRecipes() {
     const recipeStr = fs.readFileSync(`recipes/${filename}`, 'utf-8');
     const recipe = JSON.parse(recipeStr);
     const name = recipe.recipeName;
-    console.log(id, name);
     recipes.push({
       id,
       name

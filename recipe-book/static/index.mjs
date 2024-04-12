@@ -18,10 +18,11 @@ const recipes = await recipesResponse.json();
 recipes.forEach(addRecipeListItem);
 
 function addRecipeListItem(recipe) {
-  console.log('should add', recipe.name, 'to the dom');
   const recipeList = document.querySelector('.recipe-list');
   const recipeLi = document.createElement('li');
-
+  recipeLi.addEventListener('click', () => {
+    location.href = `/recipe/edit?id=${recipe.id}`;
+  });
   recipeLi.innerText = `${recipe.id}.${recipe.name}`;
   recipeList.appendChild(recipeLi);
 }
