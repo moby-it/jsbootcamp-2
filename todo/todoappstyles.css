@@ -1,11 +1,10 @@
 
 body {
     background-color : hsl(261, 56%, 18%);
-    width : 100%;
-    height : 100vh;
+    height : 100%;
     display : flex;
     justify-content : center;
-    overflow: hidden;
+    overflow: auto;
 }
 
 
@@ -20,8 +19,8 @@ button {
 }
 
 form {
-    margin-bottom: 1.5rem;
-    margin-left: 0.1rem;
+    margin-bottom: 1.45rem;
+    margin-right: 0.05rem;
     display : flex;
     align-items : center;
     justify-content: center;

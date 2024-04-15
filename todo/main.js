@@ -1,15 +1,18 @@
 let number_of_notes = 0;
-input = document.getElementById("inputbox");
+
+
 
 function add_note() {
-    if(number_of_notes === 0) { 
-        document.getElementById("emptynote").remove();
-    }
+    let mainframe = document.getElementById("mainframe");
+    let noNotes = document.getElementById("emptynote");
+
+    
+
     let listedNote = document.createElement('section');
-    listedNote.style.width = "430px";
-    listedNote.style.height = "96px";
+    listedNote.style.width = "432px";
+    listedNote.style.height = "114.39px";
     listedNote.style.backgroundColor = "hsl(53, 18%, 70%)";
-    listedNote.style.marginBottom = "25px";
+    listedNote.style.marginBottom = "15px";
     listedNote.style.borderRadius= "12px";
     listedNote.style.display = "flex";
     listedNote.style.alignItems = "center";
@@ -17,7 +20,7 @@ function add_note() {
 
     let noteSection = document.createElement('section');
     
-    noteSection.style.padding = "32px";
+    noteSection.style.padding = "18px 16px";
     noteSection.style.height = "114.39px";
     noteSection.style.width = "432px";
     noteSection.style.display = "flex";
@@ -28,7 +31,9 @@ function add_note() {
     let input = document.getElementById("inputbox");
     let textNote = document.createElement('p'); 
     textNote.style.fontFamily = "IBM Plex Sans";
+    textNote.style.size = "15px";
     textNote.textContent = input.value;
+    textNote.style.color = "hsl(261, 56%, 18%);"
     input.value = "";
     noteSection.appendChild(textNote);
     
@@ -37,6 +42,7 @@ function add_note() {
     signSection.height = "24";
     signSection.style.display = "flex";
     signSection.style.alignItens = "center";
+    signSection.style.justifyContent = "space-between";
 
     function noteDone() {
         textNote.style.textDecorationLine = "line-through";
@@ -44,26 +50,36 @@ function add_note() {
 
     let tickSign = document.createElement('img');
     tickSign.addEventListener("click", noteDone);
-    tickSign.src = 'images/tick-svgrepo-com.svg'
-    tickSign.width = "24";
-    tickSign.height = "24";
-    tickSign.style.marginRight = "16px";
+    tickSign.src = 'images/tick-svgrepo-com (3).svg'
+    tickSign.width = "25";
+    tickSign.height = "25";
+    //tickSign.style.paddingTop = "3px";
+    tickSign.style.marginRight = "14px";
     signSection.appendChild(tickSign);
 
     function noteRemove() {
         listedNote.remove();
+        number_of_notes -= 1;
+        if(number_of_notes === 0) { 
+            mainframe.appendChild(noNotes);
+        }
     }
 
     let trashSign = document.createElement('img');
     trashSign.addEventListener("click", noteRemove);
-    trashSign.src = 'images/trash-bin-2-svgrepo-com.svg'
-    trashSign.width = "24"
-    trashSign.height = "24"
+    trashSign.src = 'images/trash-bin-2-svgrepo-com.svg';
+    trashSign.width = "26";
+    trashSign.height = "26";
+    trashSign.style.fill = "red";
     signSection.appendChild(trashSign);
     
     noteSection.appendChild(signSection);
 
     listedNote.appendChild(noteSection);
+
+    if(number_of_notes === 0) { 
+        noNotes.remove();
+    }
 
     number_of_notes += 1;
 }
