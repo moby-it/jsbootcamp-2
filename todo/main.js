@@ -28,8 +28,8 @@ function add_note() {
     let input = document.getElementById("inputbox");
     let textNote = document.createElement('p'); 
     textNote.style.fontFamily = "IBM Plex Sans";
-    textNote.style.marginRight = 
     textNote.textContent = input.value;
+    input.value = "";
     noteSection.appendChild(textNote);
     
     let signSection = document.createElement('section');
@@ -38,24 +38,35 @@ function add_note() {
     signSection.style.display = "flex";
     signSection.style.alignItens = "center";
 
+    function noteDone() {
+        textNote.style.textDecorationLine = "line-through";
+    }
+
     let tickSign = document.createElement('img');
+    tickSign.addEventListener("click", noteDone);
     tickSign.src = 'images/tick-svgrepo-com.svg'
     tickSign.width = "24";
     tickSign.height = "24";
     tickSign.style.marginRight = "16px";
     signSection.appendChild(tickSign);
 
+    function noteRemove() {
+        listedNote.remove();
+    }
+
     let trashSign = document.createElement('img');
+    trashSign.addEventListener("click", noteRemove);
     trashSign.src = 'images/trash-bin-2-svgrepo-com.svg'
     trashSign.width = "24"
     trashSign.height = "24"
     signSection.appendChild(trashSign);
-
+    
     noteSection.appendChild(signSection);
 
     listedNote.appendChild(noteSection);
 
     number_of_notes += 1;
-
-    console.log(input.value);
 }
+
+
+
