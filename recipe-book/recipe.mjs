@@ -17,6 +17,7 @@ export function saveRecipe(recipeJson, id) {
 }
 
 export function getRecipes() {
+  if (!fs.existsSync('recipes')) return [];
   const s = fs.readdirSync('recipes');
   const recipes = [];
   s.forEach(filename => {
