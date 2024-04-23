@@ -1,12 +1,12 @@
 let number_of_notes = 0;
 
 
-
 function add_note() {
-    let mainframe = document.getElementById("mainframe");
-    let noNotes = document.getElementById("emptynote");
 
     
+    if( number_of_notes === 0) {
+        document.getElementById('emptynote').remove();
+    }
 
     let listedNote = document.createElement('section');
     listedNote.style.width = "432px";
@@ -60,9 +60,17 @@ function add_note() {
     function noteRemove() {
         listedNote.remove();
         number_of_notes -= 1;
-        if(number_of_notes === 0) { 
-            mainframe.appendChild(noNotes);
+        if( number_of_notes === 0 ) {
+           let noNotes = document.createElement('p');
+           noNotes.textContent = "There are no notes"
+           noNotes.style.color = "hsl(0, 0%, 90%)";
+           noNotes.style.fontFamily = "IBM Plex Sans";
+           noNotes.style.textAlign = "center";
+           noNotes.setAttribute("id", "emptynote");
+           document.getElementById("mainframe").appendChild(noNotes);
+           console.log("done");
         }
+        console.log(number_of_notes);
     }
 
     let trashSign = document.createElement('img');
@@ -77,11 +85,9 @@ function add_note() {
 
     listedNote.appendChild(noteSection);
 
-    if(number_of_notes === 0) { 
-        noNotes.remove();
-    }
-
     number_of_notes += 1;
+
+    console.log(number_of_notes);
 }
 
 
