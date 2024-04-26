@@ -1,0 +1,132 @@
+:root {
+    --gap-1: 1rem;
+    --gap-2: 2rem;
+    --gap-3: 3rem;
+    --background: hsl(261, 56%, 18%);
+    --text: hsl(0, 0%, 90%);
+    --primary: hsl(53, 18%, 70%);
+    --primary-dark: hsl(53, 18%, 60%);
+    --error: hsl(347, 100%, 61%);
+    --radius: 12px;
+}
+
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: var(--gap-1);
+}
+
+
+
+body {
+    font-size: 16px;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, body {
+    color: var(--text);
+    font-family: IBM Plex Sans, sans-serif;
+    background-color: var(--background);
+}
+
+main>header[data-v-62ff50f3] {
+    margin-bottom: var(--gap-2);
+}
+
+header[data-v-62ff50f3] {
+    display: flex;
+    flex-direction: column;
+}
+
+.title[data-v-62ff50f3] {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    margin: .67em 0;
+}
+
+header[data-v-62ff50f3] form[data-v-62ff50f3] {
+    display: flex;
+    gap: var(--gap-1);
+    justify-content: center;
+}
+
+button, input {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.submit[data-v-62ff50f3] {
+    padding: 6px 8px;
+}
+
+button[data-v-62ff50f3], .empty[data-v-62ff50f3] {
+    align-self: center;
+}
+
+button, [type=button], [type=reset], [type=submit] {
+    -webkit-appearance: button;
+}
+
+button {
+    font-size: inherit;
+    border-radius: var(--radius);
+    outline: none;
+    padding: 8px;
+    background-color: var(--primary);
+    border: none;
+    cursor: pointer;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button, input {
+    overflow: visible;
+}
+
+.notes[data-v-62ff50f3] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.note[data-v-619853f0] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+    padding: var(--gap-2) var(--gap-1);
+    border: 1px solid var(--primary-light);
+    border-radius: var(--radius);
+    background-color: var(--primary);
+    color: var(--background);
+}
+
+.icons[data-v-619853f0] {
+    display: flex;
+    gap: var(--gap-1);
+    cursor: pointer;
+}
+
+img {
+    border-style: none;
+}
+
+
+
