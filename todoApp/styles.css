@@ -1,0 +1,79 @@
+:root {
+    --gap-1: 1rem;
+    --gap-2: 2rem;
+    --gap-3: 3rem;
+    --background: hsl(261, 56%, 18%);
+    --text: hsl(0, 0%, 90%);
+    --primary: hsl(53, 18%, 70%);
+    --primary-dark: hsl(53, 18%, 60%);
+    --error: hsl(347, 100%, 61%);
+    --radius: 12px;
+}
+
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+}
+
+.title {
+    text-align: center;
+}
+
+h1, h2, h3, h4, h5, body {
+    color: var(--text);
+    font-family: IBM Plex Sans, sans-serif;
+    background-color: var(--background);
+}
+
+h1 {
+    font-size: 2em;
+    margin: .67em 0;
+}
+
+body {
+    font-size: 16px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: var(--gap-1);
+}
+
+main>header {
+    margin-bottom: var(--gap-2);
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+}
+
+header form {
+    display: flex;
+    gap: var(--gap-1);
+    justify-content: center;
+}
+
+button, input {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.submit {
+    padding: 6px 8px;
+}
+
+button, .empty{
+    align-self: center;
+}
+
+button, [type=button], [type=reset], [type=submit] {
+    -webkit-appearance: button;
+}

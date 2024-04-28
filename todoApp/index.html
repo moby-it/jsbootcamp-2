@@ -1,8 +1,8 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="/styles/styles.css">
-        <link rel="stylesheet" href="/styles/index.css">
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="/timer-styles.css">
         <link rel="icon" href="/favicon.ico">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,18 +10,30 @@
         rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>To do App</title>
-        <script type="module" src="/index.mjs"></script>
-    </head>
-    <body>
-        <h1>Γράψε τη Μαλακία σου!</h1>
-        <section>
-            <input type="text">
-            <button class="button" type="submit" 
-            title="πάτα enter να προσθέσεις τη μαλακία σου...  ">
-                +
-            </button>
-            <ul class="todo-list"> 
-            </ul>
-        </section>        
+        <script type="module" src="/main.mjs"></script>
+        <script src="/timer.mjs"></script>
+    </head>   
+    <body onload="myFunction()">
+        <div id="app">
+            <main >
+                <header >
+                    <h1  class="title">Γράψε τη Μαλακία σου!</h1>
+                    <form >
+                        <input  type="text">
+                        <button  class="button" type="submit" 
+                        title="πάτα enter να προσθέσεις τη μαλακία σου...  ">
+                            +
+                        </button>
+                    </form>
+                </header>
+                <p  class="empty">Χρόνος που άντεξες χωρίς καινούρια μαλακία... </p>
+                <div id="timer">00:00:00</div>
+                <script>
+                    function myFunction() {
+                        startTimer();
+                    }
+                </script>
+            </main>        
+        </div>            
     </body>
 </html>
