@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.mjs",
   "scripts": {
-    "dev": "node --watch main.mjs"
+    "dev": "node --watch main.mjs",
+    "start": "node --watch main.mjs"
   },
   "author": "",
   "license": "ISC"
