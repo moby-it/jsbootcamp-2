@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -10,30 +12,24 @@
         rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>To do App</title>
-        <script type="module" src="/main.mjs"></script>
+        <script type="module" src="/main2.mjs"></script>
         <script src="/timer.mjs"></script>
     </head>   
-    <body onload="myFunction()">
+    <body>
         <div id="app">
-            <main >
+            <main id="mainframe" >
                 <header >
                     <h1  class="title">Γράψε τη Μαλακία σου!</h1>
                     <form >
-                        <input  type="text">
-                        <button  class="button" type="submit" 
+                        <input id="inputbox" type="text">
+                        <button  id="button" class="submit" type="submit" 
                         title="πάτα enter να προσθέσεις τη μαλακία σου...  " 
-                        onclick="addNote()">
+                        onclick= "addNote()">
                             +
                         </button>
                     </form>
                 </header>
-                <p  class="empty">Χρόνος που άντεξες χωρίς καινούρια μαλακία... </p>
-                <div id="timer">00:00:00</div>
-                <script>
-                    function myFunction() {
-                        startTimer();
-                    }
-                </script>
+                <p  id="empty">Πολύ άντεξες χωρίς μαλακία... </p>                              
             </main>        
         </div>            
     </body>

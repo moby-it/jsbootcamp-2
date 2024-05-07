@@ -1,0 +1,13 @@
+<div id="timer">00:00:00</div>
+                <script>
+                    function myFunction() {
+                        startTimer();
+                    }
+                </script>
+
+<body onload="myFunction()"></body>
+
+<script> 
+    function addNote(){
+    console.log("kati kanw");
+}</script> 

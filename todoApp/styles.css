@@ -70,7 +70,7 @@ button, input, optgroup, select, textarea {
     padding: 6px 8px;
 }
 
-button, .empty{
+button, #empty{
     align-self: center;
 }
 
