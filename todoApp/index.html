@@ -12,10 +12,10 @@
         rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>To do App</title>
-        <script type="module" src="/main2.mjs"></script>
+        <script src="/main.mjs"></script>
         <script src="/timer.mjs"></script>
     </head>   
-    <body>
+    <body onload="myFunction()">
         <div id="app">
             <main id="mainframe" >
                 <header >
@@ -29,7 +29,13 @@
                         </button>
                     </form>
                 </header>
-                <p  id="empty">Πολύ άντεξες χωρίς μαλακία... </p>                              
+                <p  id="empty">Πολύ άντεξες χωρίς μαλακία... </p>
+                <div id="timer">00:00:00</div>
+                <script>
+                    function myFunction() {
+                        startTimer();        
+                    }
+                </script>                                                  
             </main>        
         </div>            
     </body>

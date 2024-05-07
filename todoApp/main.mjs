@@ -1,6 +1,6 @@
 let number_of_notes = 0;
 
-export function add_note() {
+function add_note() {
 
     let note = document.createElement('section');
     note.style.width = "432px";
@@ -31,7 +31,7 @@ export function add_note() {
     input.value = "";
     noteSection.appendChild(note_text);
     
-    /*let signSection = document.createElement('section');
+    let signSection = document.createElement('section');
     signSection.width = "64";
     signSection.height = "24";
     signSection.style.display = "flex";
@@ -80,13 +80,13 @@ export function add_note() {
 
     number_of_notes += 1;
 
-    console.log(number_of_notes); */
+    console.log(number_of_notes); 
 }
 
 /* export function handleClick() {
     alert("Button clicked!");
-} */
+} 
 
 function addNote(){
     console.log("kanw kati");
-}
+} */
