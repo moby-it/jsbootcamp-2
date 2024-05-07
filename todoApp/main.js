@@ -1,37 +1,10 @@
-
-/*
-function add_note() {
-
-    let note = document.createElement('section');
-    note.style.width = "432px";
-    note.style.height = "114.39px";
-    note.style.backgroundColor = "hsl(53, 18%, 70%)";
-    note.style.marginBottom = "15px";
-    note.style.borderRadius= "12px";
-    note.style.display = "flex";
-    note.style.alignItems = "center";
-    document.getElementById('mainframe').appendChild(note);
-
-    let noteSection = document.createElement('section');    
-    noteSection.style.padding = "18px 16px";
-    noteSection.style.height = "114.39px";
-    noteSection.style.width = "432px";
-    noteSection.style.display = "flex";
-    noteSection.style.alignItems = "center";
-    noteSection.style.justifyContent = "space-between";
-
-    note.appendChild(noteSection);
-}*/
-
 let number_of_notes = 0;
 
-
-
 function add_note() {
-    let mainframe = document.getElementById("mainframe");
-    let noNotes = document.getElementById("empty");
-
     
+    if( number_of_notes === 0) {
+        document.getElementById('emptynote').remove();
+    }
 
     let listedNote = document.createElement('section');
     listedNote.style.width = "432px";
@@ -52,7 +25,6 @@ function add_note() {
     noteSection.style.alignItems = "center";
     noteSection.style.justifyContent = "space-between";
    
-
     let input = document.getElementById("inputbox");
     let textNote = document.createElement('p'); 
     textNote.style.fontFamily = "IBM Plex Sans";
@@ -75,7 +47,7 @@ function add_note() {
 
     let tickSign = document.createElement('img');
     tickSign.addEventListener("click", noteDone);
-    tickSign.src = 'images/check.svg'
+    tickSign.src = 'images/tick-svgrepo-com (3).svg'
     tickSign.width = "25";
     tickSign.height = "25";
     //tickSign.style.paddingTop = "3px";
@@ -85,14 +57,22 @@ function add_note() {
     function noteRemove() {
         listedNote.remove();
         number_of_notes -= 1;
-        if(number_of_notes === 0) { 
-            mainframe.appendChild(noNotes);
+        if( number_of_notes === 0 ) {
+           let noNotes = document.createElement('p');
+           noNotes.textContent = "There are no notes"
+           noNotes.style.color = "hsl(0, 0%, 90%)";
+           noNotes.style.fontFamily = "IBM Plex Sans";
+           noNotes.style.textAlign = "center";
+           noNotes.setAttribute("id", "emptynote");
+           document.getElementById("mainframe").appendChild(noNotes);
+           console.log("done");
         }
+        console.log(number_of_notes);
     }
 
     let trashSign = document.createElement('img');
     trashSign.addEventListener("click", noteRemove);
-    trashSign.src = 'images/trash.svg';
+    trashSign.src = 'images/trash-bin-2-svgrepo-com.svg';
     trashSign.width = "26";
     trashSign.height = "26";
     trashSign.style.fill = "red";
@@ -102,9 +82,7 @@ function add_note() {
 
     listedNote.appendChild(noteSection);
 
-    if(number_of_notes === 0) { 
-        noNotes.remove();
-    }
-
     number_of_notes += 1;
+
+    console.log(number_of_notes);
 }

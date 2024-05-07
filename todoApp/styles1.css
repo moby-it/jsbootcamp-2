@@ -1,0 +1,57 @@
+body {
+    background-color : hsl(261, 56%, 18%);
+    height : 100%;
+    display : flex;
+    justify-content : center;
+    overflow: auto;
+}
+
+
+button {
+    border-radius: 12px;
+    margin: 9px;
+    margin-left: 16px;
+    width:25px;
+    height: 29.5px;
+    background: hsl(53, 18%, 70%);
+    border: none;
+}
+
+form {
+    margin-bottom: 1.45rem;
+    margin-right: 0.05rem;
+    display : flex;
+    align-items : center;
+    justify-content: center;
+}
+
+.apptext {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    color: hsl(0, 0%, 90%);
+    text-align: center;
+}
+
+button:hover {
+    background-color:  hsl(53, 18%, 60%);
+}
+
+#title {
+    font-size:2em;
+    margin-top: 26px;
+    margin-bottom: 11px;
+
+}
+
+#inputbox {
+    margin-left: 10px;
+    width: 179px;
+    height: 24px;
+    text-align: start;
+    color:black;
+    font-size:16px;
+}
+
+#emptynote {
+    margin-top : 38px;
+}

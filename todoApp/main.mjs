@@ -1,16 +1,20 @@
 let number_of_notes = 0;
 
 function add_note() {
+    
+    if( number_of_notes === 0) {
+        document.getElementById('empty').remove();
+    }
 
-    let note = document.createElement('section');
-    note.style.width = "432px";
-    note.style.height = "114.39px";
-    note.style.backgroundColor = "hsl(53, 18%, 70%)";
-    note.style.marginBottom = "15px";
-    note.style.borderRadius= "12px";
-    note.style.display = "flex";
-    note.style.alignItems = "center";
-    document.getElementById('mainframe').appendChild(note);
+    let listedNote = document.createElement('section');
+    listedNote.style.width = "432px";
+    listedNote.style.height = "114.39px";
+    listedNote.style.backgroundColor = "hsl(53, 18%, 70%)";
+    listedNote.style.marginBottom = "15px";
+    listedNote.style.borderRadius= "12px";
+    listedNote.style.display = "flex";
+    listedNote.style.alignItems = "center";
+    document.getElementById('mainframe').appendChild(listedNote);
 
     let noteSection = document.createElement('section');
     
@@ -21,15 +25,14 @@ function add_note() {
     noteSection.style.alignItems = "center";
     noteSection.style.justifyContent = "space-between";
    
-
     let input = document.getElementById("inputbox");
-    let note_text = document.createElement('p'); 
-    note_text.style.fontFamily = "IBM Plex Sans";
-    note_text.style.size = "15px";
-    note_text.textContent = input.value;
-    note_text.style.color = "hsl(261, 56%, 18%);"
+    let textNote = document.createElement('p'); 
+    textNote.style.fontFamily = "IBM Plex Sans";
+    textNote.style.size = "15px";
+    textNote.textContent = input.value;
+    textNote.style.color = "hsl(261, 56%, 18%);"
     input.value = "";
-    noteSection.appendChild(note_text);
+    noteSection.appendChild(textNote);
     
     let signSection = document.createElement('section');
     signSection.width = "64";
@@ -39,7 +42,7 @@ function add_note() {
     signSection.style.justifyContent = "space-between";
 
     function noteDone() {
-        note_text.style.textDecorationLine = "line-through";
+        textNote.style.textDecorationLine = "line-through";
     }
 
     let tickSign = document.createElement('img');
@@ -47,11 +50,12 @@ function add_note() {
     tickSign.src = 'images/check.svg'
     tickSign.width = "25";
     tickSign.height = "25";
+    //tickSign.style.paddingTop = "3px";
     tickSign.style.marginRight = "14px";
     signSection.appendChild(tickSign);
 
     function noteRemove() {
-        note.remove();
+        listedNote.remove();
         number_of_notes -= 1;
         if( number_of_notes === 0 ) {
            let noNotes = document.createElement('p');
@@ -76,17 +80,10 @@ function add_note() {
     
     noteSection.appendChild(signSection);
 
-    note.appendChild(noteSection);
+    listedNote.appendChild(noteSection);
 
     number_of_notes += 1;
 
-    console.log(number_of_notes); 
+    console.log(number_of_notes);
 }
 
-/* export function handleClick() {
-    alert("Button clicked!");
-} 
-
-function addNote(){
-    console.log("kanw kati");
-} */
