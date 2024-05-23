@@ -6,13 +6,24 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>Page Title</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-  <script defer src='main.js'></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- <script defer src='main.js'></script> -->
 </head>
 
 <body>
+  <div id="app">
+    <p>
+      count: {{ count }}
+    </p>
+    <p v-if="doubleCount > 20">
+      double count: {{ doubleCount }}
+    </p>
+    <button @click="inc">inc</button>
+  </div>
   <span id="counter">1</span>
   <button>Inc</button>
+  <script type="module" src="counter.mjs">
+  </script>
 </body>
 
 </html>
