@@ -8,20 +8,30 @@
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <!-- <script defer src='main.js'></script> -->
+  <style>
+    .highlighted {
+      background-color: lightcoral;
+    }
+  </style>
 </head>
 
 <body>
-  <div id="app">
-    <p>
+  <section id="app">
+    <h2>Vue Counter</h2>
+    <p :class="countClass">
       count: {{ count }}
     </p>
-    <p v-if="doubleCount > 20">
+    <p>
       double count: {{ doubleCount }}
     </p>
     <button @click="inc">inc</button>
-  </div>
-  <span id="counter">1</span>
-  <button>Inc</button>
+  </section>
+  <hr>
+  <section>
+    <h2>Vanilla Counter</h2>
+    <span id="counter">1</span>
+    <button>Inc</button>
+  </section>
   <script type="module" src="counter.mjs">
   </script>
 </body>
