@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
+const model = defineModel();
+
 const checked = ref(false);
 const text = ref('');
 
@@ -9,7 +11,7 @@ const text = ref('');
 
   <section>
     <label for="checkbox">{{ checked }}</label>
-    <input type="checkbox" id="checkbox" v-model="checked" />
+    <input type="checkbox" id="checkbox" v-model="model" />
   </section>
   <section>
     <input v-model="text" />

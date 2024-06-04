@@ -1,9 +1,11 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, ref, inject } from 'vue';
 
-const props = defineProps(['initialCount']);
+const initialCount = inject('initialCount') || 10;
+
 defineEmits(['countUpdated']);
-const count = ref(props.initialCount);
+
+const count = ref(initialCount);
 const doubleCount = computed(() => count.value * 2);
 
 function increment() {

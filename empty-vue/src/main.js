@@ -1,15 +1,21 @@
-import './assets/main.css';
+import "./assets/main.css";
 
-import { createApp } from 'vue';
-import App from './App.vue';
+import { createApp } from "vue";
+import { createRouter } from "vue-router";
 
-createApp(App).mount('#app');
+import { createWebHistory } from "vue-router";
+import App from "./App.vue";
+import Count from "./pages/Count.vue";
+import Home from "./pages/Home.vue";
 
+const routes = [
+  { path: "/", component: Home },
+  { path: "/count", component: Count },
+];
 
-const obj = {
-  get name() {
-    console.log('side effect');
-    return 'George';
-  }
-};
-obj.name;
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
+
+createApp(App).use(router).mount("#app");
