@@ -1,7 +1,9 @@
 <script setup>
 import { computed, ref } from 'vue';
 
-const count = ref(0);
+const props = defineProps(['initialCount']);
+defineEmits(['countUpdated']);
+const count = ref(props.initialCount);
 const doubleCount = computed(() => count.value * 2);
 
 function increment() {
@@ -12,5 +14,8 @@ function increment() {
   <h1>Counter</h1>
   <p>count: {{ count }}</p>
   <p>double count :{{ doubleCount }}</p>
-  <button @click="increment">Inc</button>
+  <button @click="() => {
+    increment();
+    $emit('countUpdated', count);
+  }">Inc</button>
 </template>
